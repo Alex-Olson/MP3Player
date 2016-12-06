@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Created by Federico on 12/6/2016.
@@ -65,6 +67,10 @@ public class MP3GUI extends JFrame  {
 
     public void selectFile() {
         JFileChooser chooser = new JFileChooser();
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("MPEG3 songs", "mp3");
+        chooser.setFileFilter(filter);
+
         chooser.setCurrentDirectory(new java.io.File("C:/Users/Federico/Desktop"));
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File f = chooser.getSelectedFile();
